@@ -47,9 +47,9 @@ mavenPublishing {
         }
 
         scm {
-            url = "YOUR_GITHUB_REPOSITORY_URL"
-            connection = "YOUR_GIT_CONNECTION"
-            developerConnection = "YOUR_GIT_SSH_CONNECTION"
+            url = "https://github.com/akashprajapathi/AndroidDL"
+            connection = "scm:git:git://github.com/akashprajapathi/AndroidDL.git"
+            developerConnection = "scm:git:ssh://git@github.com/akashprajapathi/AndroidDL.git"
         }
     }
 }

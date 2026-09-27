@@ -90,13 +90,6 @@ val model = Sequential(
         outFeatures = 1
     )
 )
-
-val input = Tensor(
-    data = floatArrayOf(1f, 2f, 3f, 4f),
-    shape = intArrayOf(1, 4)
-)
-
-val output = model(input)
 ```
 
 This produces a simple network:

@@ -79,28 +79,24 @@ Model parameters are registered hierarchically, while submodules are recursively
 import io.github.akashprajapathi.androiddl.core.Tensor
 import io.github.akashprajapathi.androiddl.nn.*
 
-// Build a multi-layer feed-forward network sequentially
-class MyCustomModel : Module() {
+val model = Sequential(
+    Linear(
+        inFeatures = 4,
+        outFeatures = 8
+    ),
+    ReLU(),
+    Linear(
+        inFeatures = 8,
+        outFeatures = 1
+    )
+)
 
-    val model = registerModule(
-        "model",
-        Sequential(
-            Linear(
-                inFeatures = 4,
-                outFeatures = 8
-            ),
-            ReLU(),
-            Linear(
-                inFeatures = 8,
-                outFeatures = 1
-            )
-        )
-    ) as Sequential
+val input = Tensor(
+    data = floatArrayOf(1f, 2f, 3f, 4f),
+    shape = intArrayOf(1, 4)
+)
 
-    override fun invoke(input: Tensor): Tensor {
-        return model(input)
-    }
-}
+val output = model(input)
 ```
 
 This produces a simple network:

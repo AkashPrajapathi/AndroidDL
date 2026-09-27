@@ -2,6 +2,7 @@ plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
     id("com.vanniktech.maven.publish") version "0.37.0"
+    signing
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -51,5 +52,17 @@ mavenPublishing {
             connection = "scm:git:git://github.com/akashprajapathi/AndroidDL.git"
             developerConnection = "scm:git:ssh://git@github.com/akashprajapathi/AndroidDL.git"
         }
+    }
+
+    signing {
+        val signingKey = providers.gradleProperty("signingInMemoryKey").orNull
+        val signingPassword = providers.gradleProperty("signingInMemoryKeyPassword").orNull
+        val signingKeyId = providers.gradleProperty("signingInMemoryKeyId").orNull
+
+        useInMemoryPgpKeys(
+            signingKeyId,
+            signingKey,
+            signingPassword
+        )
     }
 }

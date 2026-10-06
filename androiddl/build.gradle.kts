@@ -29,7 +29,7 @@ mavenPublishing {
         description = "A CPU-based deep learning library for Kotlin."
         inceptionYear = "2026"
 
-        url = "YOUR_GITHUB_REPOSITORY_URL"
+        url = "https://github.com/AkashPrajapathi/AndroidDL.git"
 
         licenses {
             license {

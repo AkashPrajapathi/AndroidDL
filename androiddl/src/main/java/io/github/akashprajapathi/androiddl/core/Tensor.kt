@@ -456,9 +456,9 @@ class Tensor private constructor(
                 return null
             }
 
-            newStrides[i] = chunkStride
-
             remainingInChunk /= dim
+
+            newStrides[i] = remainingInChunk * chunkStride
 
             if (remainingInChunk == 1) {
 
@@ -468,8 +468,6 @@ class Tensor private constructor(
                     remainingInChunk = chunks[chunkIndex].first
                     chunkStride = chunks[chunkIndex].second
                 }
-            } else {
-                chunkStride *= dim
             }
         }
 
